@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device=width, initial scale=1.0">
+    <title>HTML Challenge 1</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <h1 class="title">Liste ordonnée</h1>
+    <ol id="list-simple">
+        <li>Démarrer son navigateur</li>
+        <li>Ouvrir la console</li>
+        <li>Coder !</li> 
+    </ol>
+
+    <h1 class="title">Liste imbriquée</h1>
+    <ol id="list-nested">
+        <li>élement de niveau 1.1</li>
+        <li>élement de niveau 1.2
+            <ul>
+                <li>premier sous-élement du deuxième élément numéroté
+                    <ol>
+                        <li>ajoutons-y une sous-liste</li>
+                        <li>Elle est numérotée</li>
+                        <li>c'est toujours ok ?</li>
+                    </ol>
+                </li>
+                <li>2ème sous-élement du deuxième élement numéroté</li>
+                <li>3ème sous-élement du deuxième élement numéroté</li>
+            </ul>
+        </li> 
+        <li>élement de niveau 1.1</li>
+    </ol>
+
+    <h1 class="title">Un tableau simple</h1>
+    <table id="table-simple" class="table">
+        <tr>
+            <td>As</td>
+            <td>Trèfle</td>
+        </tr>
+        <tr>
+            <td>Carreaux</td>
+            <td>Coeur</td>
+        </tr>
+    </table>
+
+    <h1 class="title">Un exemple un peu plus complexe</h1>
+    <table id="table-complex" class="table">
+        <tr>
+            <th colspan="2"></th>
+            <th colspan="2">Premier Groupe</th>
+            <th colspan="2">Deuxième Groupe</th>
+        </tr>
+        <tr class="personne">
+            <td></td>
+            <td>Personne</td>
+            <td>Singulier</td>
+            <td>Pluriel</td>
+            <td>Singulier</td>
+            <td>Pluriel</td>
+        </tr>
+        <tr>
+            <td rowspan="3">présent</td>
+            <td>1</td>
+            <td>je code</td>
+            <td>nous codons</td>
+            <td>je réussis</td>
+            <td>nous réussissons</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>tu codes</td>
+            <td>vous codez</td>
+            <td>tu réussis</td>
+            <td>vous réussissez</td>  
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>il/elle code</td>
+            <td>ils/elles codent</td>
+            <td>il/elle réussit</td>
+            <td>ils/elles réussissent</td>  
+        </tr>
+    </table>
+</body>
+</html>

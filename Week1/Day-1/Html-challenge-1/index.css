@@ -1,0 +1,23 @@
+body {
+    margin-left: 80px;
+}
+
+#table-simple {
+    border: 3px solid lightgrey;
+}
+
+#table-simple tr td {
+    border: 3px solid black
+}
+
+#table-complex th, td {
+    border: 3px solid black
+}
+
+#table-complex {
+    border-collapse: collapse;
+}
+.personne {
+    font-weight: bold;
+    text-align: center;
+}
