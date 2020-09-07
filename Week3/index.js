@@ -33,38 +33,6 @@ start.addEventListener("click", loadSecretCode);
 // TEST --> One line only for now
 
 var arr = [];
-// function addColor(evt) {
-// 	console.log(evt.target.classList.value);
-// 	if (arr.length < 4) {
-// 		arr.push(evt.target.classList.value);
-// 	}
-// 	for (let i = 2; i < table.children.length + 1; i++) {
-// 		for (
-// 			let j = 2;
-// 			j < table.children[table.children.length - i].children.length;
-// 			j++
-// 		) {
-// 			if (
-// 				table.children[table.children.length - i].children[j].classList.contains("full") 
-//             ) { continue
-// 			} else {
-// 				table.children[table.children.length - i].children[j].classList.add(evt.target.classList.value, "full");
-//             }
-//             break
-//         }
-// 			console.log(
-// 				table.children[table.children.length - i].children[
-// 					table.children[table.children.length - i].children.length - j
-// 				].classList
-// 			);
-// 		}
-// 	console.log(arr);
-// }
-
-// console.log(table.children);
-
-
-// console.log(lines);
 
 function addColor(evt) {
     lines.forEach(function(line) {
@@ -74,10 +42,13 @@ function addColor(evt) {
                     continue
                 }
                 else {line.children[i].classList.add(evt.target.classList.value, "full")};
-                break
+                arr.push(evt.target.classList.value);
+                break;
             }
+            return arr;
         }
     })
 }
+
 
 colorsbtn.forEach((colorBtn) => colorBtn.addEventListener("click", addColor));
