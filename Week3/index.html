@@ -26,18 +26,18 @@
 	<body>
 		<section id="first-page">
 			<div id="title">
-				<h1>MASTERMIND</h1>
+				<h1 class="text-focus-in">MASTERMIND</h1>
 			</div>
 			<a href="#game"><span></span>Scroll</a>
 		</section>
 		<secion id="game">
 			<div id="message">
-				<button id="start">Start</button>
+				<button id="start" class="heartbeat">Start</button>
 				<button class="btn-try">Try</button>
 				<button class="btn-reset">Reset</button>
 			</div>
 			<div id="game-part">
-				<div class= "loaded">Please start the game</div>
+				<div class="loaded">Please start the game</div>
 				<div>
 					<table>
 						<tbody id="table-game">
@@ -127,19 +127,26 @@
 				<div>
 					<table id="given-colors">
 						<tr id="colors" class="done">
-							<td class="blue"></td>
-							<td class="green"></td>
-							<td class="yellow"></td>
-							<td class="purple"></td>
-							<td class="red"></td>
-							<td class="orange"></td>
-							<td class="pink"></td>
-							<td class="dark-blue"></td>
+							<td class="blue slide-top"></td>
+							<td class="green slide-top"></td>
+							<td class="yellow slide-top"></td>
+							<td class="purple slide-top"></td>
+							<td class="red slide-top"></td>
+							<td class="orange slide-top"></td>
+							<td class="pink slide-top"></td>
+							<td class="dark-blue slide-top"></td>
 						</tr>
 					</table>
 				</div>
 			</div>
-			<div id="chrono"></div>
+			<div id="chrono">
+				<div id="chronotime">
+					<p id="minDec"></p>
+					<p id="minUni"></p>
+					<p id="secDec"></p>
+					<p id="secUni"></p>
+				</div>
+			</div>
 		</secion>
 	</body>
 </html>

@@ -7,6 +7,12 @@ const lines = document.querySelectorAll("#table-game tr");
 const tryButton = document.querySelector(".btn-try");
 const loadingMessage = document.querySelector(".loaded");
 const resetBtn = document.querySelector(".btn-reset");
+const hintPart = document.querySelectorAll(".hint");
+const chrono = document.querySelector("#chronotime");
+let minDec = document.getElementById("minDec");
+let minUni = document.getElementById("minUni");
+let secDec = document.getElementById("secDec");
+let secUni = document.getElementById("secUni");
 const colors = [
 	"blue",
 	"green",
@@ -20,6 +26,8 @@ const colors = [
 
 // STEP 1 --> Loading a random secret code when clicking on the button start
 
+tryButton.disabled = true;
+let begin = "No";
 let secretCode = [];
 function loadSecretCode() {
 	secretCode = [...colors];
@@ -29,11 +37,13 @@ function loadSecretCode() {
 		secretCode[i] = secretCode[j];
 		secretCode[j] = temp;
 	}
-
+	begin = "Yes";
 	secretCode.splice(4, 4);
 	console.log(secretCode, colors);
 	loadingMessage.innerText = "Let's play, the secret code has been loaded!";
 	start.disabled = true;
+	tryButton.disabled = false;
+	start.classList.remove("heartbeat");
 	return secretCode;
 }
 
@@ -56,19 +66,23 @@ function increTry() {
 }
 
 // EventListener resulting from the tryButton
+
 tryButton.addEventListener("click", addFull);
 tryButton.addEventListener("click", increTry);
 tryButton.addEventListener("click", checkResult);
+tryButton.addEventListener("click", hint);
 
 // Function which will check if the result has been found
 
 function checkResult() {
-	let arrString = arr.toString();
+	let roundArrayString = roundArray.toString();
 	let secretCodeString = secretCode.toString();
-	if (arrString == secretCodeString) {
+	if (roundArrayString == secretCodeString) {
 		console.log("You have won!");
 	} else {
-		arr = [];
+		arr.push(roundArray);
+		roundArray = [];
+		console.log("this is arr ==>", arr);
 		console.log("Nice try but no");
 	}
 }
@@ -76,22 +90,26 @@ function checkResult() {
 // Modifying the colors and the class of the lines when colors are clicked on
 
 var arr = [];
+let roundArray = [];
 function addColor(evt) {
-    console.log("Ca fonctionne", arr);
-	for (let i = 1; i < 5; i++) {
-		if (lines[lines.length - tryBtn].children[i].classList.contains("full")) { console.log("ça fonctionne");
-			continue;
-		} else {
-			lines[lines.length - tryBtn].children[i].classList.add(
-				evt.target.classList.value,
-				"full"
-			) ; console.log(lines[lines.length - tryBtn]);
-			lines[lines.length - tryBtn].children[i].classList.remove("color");
+	if (begin == "Yes") {
+		for (let i = 1; i < 5; i++) {
+			if (lines[lines.length - tryBtn].children[i].classList.contains("full")) {
+				console.log("ça fonctionne");
+				continue;
+			} else {
+				lines[lines.length - tryBtn].children[i].classList.add(
+					evt.target.classList.value,
+					"full"
+				);
+				console.log(lines[lines.length - tryBtn]);
+			}
+			roundArray.push(evt.target.classList.value);
+			console.log(roundArray);
+			break;
 		}
-		arr.push(evt.target.classList.value);
-		break;
 	}
-	return arr;
+	return roundArray;
 }
 
 // Checking if the all the cells have a "full" class and if it's the case adding it to the line itself and targeting the previous line by removing the "to-be-done" classe
@@ -116,90 +134,108 @@ colorsbtn.forEach((colorBtn) => colorBtn.addEventListener("click", addColor));
 // Function which will reset the HTML text of the table
 
 function resetTable() {
-	table.innerHTML = `<tr class="to-be-done">
-    <td class="line">10</td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="hint"></td>
-</tr>
-<tr class="to-be-done">
-    <td class="line">09</td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="hint"></td>
-</tr>
-<tr class="to-be-done">
-    <td class="line">08</td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="hint"></td>
-</tr>
-<tr class="to-be-done">
-    <td class="line">07</td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="hint"></td>
-</tr>
-<tr class="to-be-done">
-    <td class="line">06</td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="hint"></td>
-</tr>
-<tr class="to-be-done">
-    <td class="line">05</td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="hint"></td>
-</tr>
-<tr class="to-be-done">
-    <td class="line">04</td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="hint"></td>
-</tr>
-<tr class="to-be-done">
-    <td class="line">03</td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="hint"></td>
-</tr>
-<tr class="to-be-done">
-    <td class="line">02</td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="hint"></td>
-</tr>
-<tr>
-    <td class="line">01</td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="color"></td>
-    <td class="hint"></td>
-</tr>`;
-arr = [];
+	lines.forEach(function (line) {
+		line.classList.remove("full");
+		line.classList.add("to-be-done");
+		for (let i = 1; i < 5; i++) {
+			line.children[i].classList.remove(
+				"full",
+				"blue",
+				"green",
+				"yellow",
+				"purple",
+				"dark-blue",
+				"red",
+				"pink",
+				"orange"
+			);
+		}
+	});
+	hintPart.forEach((Text) => (Text.innerHTML = ""));
+	lines[lines.length - 1].classList.remove("to-be-done");
+	roundArray = [];
+	arr = [];
+	tryBtn = 1;
 }
 
 // EventListener of the reset button
 
 resetBtn.addEventListener("click", loadSecretCode);
 resetBtn.addEventListener("click", resetTable);
+
+// Hint
+
+function hint() {
+	hintPart.forEach((Text) => (Text.innerHTML = ""));
+	for (let i = 0; i < arr.length; i++) {
+		for (let j = 0; j < arr[i].length; j++) {
+			if (arr[i][j] == secretCode[j]) {
+				hintPart[
+					hintPart.length - i - 1
+				].innerHTML += `<img src="./sources/whiteround.png" alt="">`;
+				continue;
+			} else if (secretCode.includes(arr[i][j])) {
+				hintPart[
+					hintPart.length - i - 1
+				].innerHTML += `<img class="black" src="./sources/blackround.png" alt="">`;
+				continue;
+			}
+		}
+	}
+}
+
+// Chrono
+
+class Chronometer {
+	constructor() {
+		this.currentTime = 0;
+		this.intervalId = 0;
+	}
+
+	startClick(printTime) {
+		this.intervalId = setInterval(() => {
+            this.currentTime++;;
+            printTime();
+		}, 1000);
+	}
+
+	getMinutes() {
+		return this.currentTime !== 0 ? Math.floor(this.currentTime / 60) : 0;
+	}
+
+	getSeconds() {
+		return this.currentTime !== 0 ? Math.floor(this.currentTime % 60) : 0;
+	}
+
+	twoDigitsNumber(twoDigits) {
+		return twoDigits >= 10 ? twoDigits.toString() : "0" + twoDigits.toString();
+	}
+
+	resetClick() {
+		this.currentTime = 0;
+	}
+}
+
+function printTime() {
+    console.log("Hello");
+	printMinutes();
+	printSeconds();
+}
+
+const chronometer = new Chronometer();
+
+function printMinutes() {
+	const minutes = chronometer.twoDigitsNumber(chronometer.getMinutes());
+	minDec.innerText = minutes.charAt(0);
+	minUni.innerText = `${minutes.charAt(1)}:`;
+}
+
+function printSeconds() {
+	const seconds = chronometer.twoDigitsNumber(chronometer.getSeconds());
+	secDec.innerText = seconds.charAt(0);
+	secUni.innerText = seconds.charAt(1);
+}
+
+
+start.addEventListener("click", chronometer.startClick(printTime));
+resetBtn.addEventListener("click", chronometer.resetClick);
