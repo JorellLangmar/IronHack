@@ -9,12 +9,7 @@ const loadingMessage = document.querySelector(".loaded");
 const resetBtn = document.querySelector(".btn-reset");
 const hintPart = document.querySelectorAll(".hint");
 const chrono = document.querySelector("#chronotime");
-let minDec = document.getElementById("minDec");
-let minUni = document.getElementById("minUni");
-let secDec = document.getElementById("secDec");
-let secUni = document.getElementById("secUni");
-let saves = localStorage;
-
+const resultPart = document.querySelector("#leader-board ul");
 const colors = [
 	"blue",
 	"green",
@@ -61,7 +56,7 @@ function increTry() {
 	lines.forEach(function (line) {
 		if (line.classList.contains("full")) {
 			tryBtn++;
-			console.log(tryBtn);
+			// console.log(tryBtn);
 			return tryBtn;
 		} else;
 	});
@@ -75,20 +70,52 @@ tryButton.addEventListener("click", checkResult);
 tryButton.addEventListener("click", hint);
 
 // Function which will check if the result has been found
-let result = {name : "", trials : "", time:""}
+let result = { name: "", trials: "", time: "" };
+let results = [];
 
 function checkResult() {
 	let roundArrayString = roundArray.toString();
 	let secretCodeString = secretCode.toString();
 	if (roundArrayString == secretCodeString) {
-        console.log("You have won! It took you ==>", hours, minutes, secondes, "# of trial", tryBtn-1);
-        
+		console.log(
+			"You have won! It took you ==>",
+			hours,
+			minutes,
+			secondes,
+			"# of trial",
+			tryBtn - 1
+		);
+		result.name = "Patrick";
+		result.trials = tryBtn - 1;
+		result.time = `${hours}:${minutes}:${secondes}`;
+        // console.log(results.sort(compare));
+        results.push({...result});
+        console.log(results);
+        results.sort(compare);
+        console.log(results);
+
+		return result;
 	} else {
 		arr.push(roundArray);
 		roundArray = [];
-		console.log("this is arr ==>", arr);
-		console.log("Nice try but no");
+		// console.log("this is arr ==>", arr);
+		// console.log("Nice try but no");
 	}
+}
+
+function compare(a, b) {
+    console.log(a.trials);
+    console.log(b.trials);
+	const trialA = a.trials;
+	const trialB = b.trials;
+
+	let comparison = 0;
+	if (trialA > trialB) {
+		comparison = 1;
+	} else if (trialA < trialB) {
+		comparison = -1;
+	}
+	return comparison;
 }
 
 // Modifying the colors and the class of the lines when colors are clicked on
@@ -99,15 +126,15 @@ function addColor(evt) {
 	if (begin == "Yes") {
 		for (let i = 1; i < 5; i++) {
 			if (lines[lines.length - tryBtn].children[i].classList.contains("full")) {
-				console.log("ça fonctionne");
+				// console.log("ça fonctionne");
 				continue;
 			} else {
 				let word = evt.target.classList.value;
-				console.log(word);
+				// console.log(word);
 				let index = word.indexOf(" ");
-				console.log(index);
+				// console.log(index);
 				var wordModified = word.substring(0, index);
-				console.log(wordModified);
+				// console.log(wordModified);
 				lines[lines.length - tryBtn].children[i].classList.add(
 					wordModified,
 					"full"
@@ -115,7 +142,7 @@ function addColor(evt) {
 				console.log(lines[lines.length - tryBtn]);
 			}
 			roundArray.push(wordModified);
-			console.log(roundArray);
+			// console.log(roundArray);
 			break;
 		}
 	}
@@ -223,30 +250,39 @@ function getClass(n, i2) {
 let hours = 0;
 let minutes = 0;
 let secondes = 0;
-let timeFull = ""
+let timeFull = "";
 var timeCounting = 0;
 let intervalId = 0;
 function timeCountingFunction() {
 	intervalId = setInterval(() => {
-        timeCounting++;
-        timeCounting !== 0 ? hours = Math.floor(timeCounting / 3600) : minutes = 0;
-        timeCounting !== 0 ? minutes = Math.floor((timeCounting % 3600)/60) : minutes = 0;
-        timeCounting !== 0 ? secondes = Math.floor(timeCounting % 60) : secondes = 0;
-        hours >= 10 ? hours = hours.toString() : hours = "0" + hours.toString();
-        minutes >= 10 ? minutes = minutes.toString() : minutes = "0" + minutes.toString();
-        secondes >= 10 ? secondes = secondes.toString() : secondes = "0" + secondes.toString()
-        timeFull = hours + minutes + secondes;
-        // console.log(timeFull);
-        return timeFull;
+		timeCounting++;
+		timeCounting !== 0
+			? (hours = Math.floor(timeCounting / 3600))
+			: (minutes = 0);
+		timeCounting !== 0
+			? (minutes = Math.floor((timeCounting % 3600) / 60))
+			: (minutes = 0);
+		timeCounting !== 0
+			? (secondes = Math.floor(timeCounting % 60))
+			: (secondes = 0);
+		hours >= 10 ? (hours = hours.toString()) : (hours = "0" + hours.toString());
+		minutes >= 10
+			? (minutes = minutes.toString())
+			: (minutes = "0" + minutes.toString());
+		secondes >= 10
+			? (secondes = secondes.toString())
+			: (secondes = "0" + secondes.toString());
+		timeFull = hours + minutes + secondes;
+		// console.log(timeFull);
+		return timeFull;
 	}, 1000);
 }
 
 let intervalIdTwo = 0;
 function letsGo() {
 	intervalIdTwo = setInterval(() => {
-        c = getClock() - getClock() + timeCounting.toString();
-        while (c.length < 6) {c = "0" +c};
-		console.log(c);
+        c =timeFull.toString();
+		// console.log(c);
 		// put intervalid and clear it when reset or lose/win
 		columns.forEach((ele, i) => {
 			let n = +c[i];
@@ -261,9 +297,9 @@ function letsGo() {
 	}, 1000 + Math.E * 10);
 }
 
-function resetTime () {
-    timeCounting=0;
-    c = getClock() - getClock();
+function resetTime() {
+	timeCounting = 0;
+	c = getClock() - getClock();
 }
 
 start.addEventListener("click", letsGo);
@@ -271,4 +307,11 @@ start.addEventListener("click", timeCountingFunction);
 resetBtn.addEventListener("click", resetTime);
 
 
+function loadScores () {
+    resultPart.innerHTML = "";
+    for (let i = 0; i < results.length ; i++) {
+        resultPart.innerHTML += `<li> #${i+1}  ==>   ${results[i].name} with ${results[i].trials} trials in ${results[i].time} </li>`
+    }
+};
 
+tryButton.addEventListener("click", loadScores);
