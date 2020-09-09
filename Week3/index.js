@@ -13,6 +13,8 @@ let minDec = document.getElementById("minDec");
 let minUni = document.getElementById("minUni");
 let secDec = document.getElementById("secDec");
 let secUni = document.getElementById("secUni");
+let saves = localStorage;
+
 const colors = [
 	"blue",
 	"green",
@@ -73,12 +75,14 @@ tryButton.addEventListener("click", checkResult);
 tryButton.addEventListener("click", hint);
 
 // Function which will check if the result has been found
+let result = {name : "", trials : "", time:""}
 
 function checkResult() {
 	let roundArrayString = roundArray.toString();
 	let secretCodeString = secretCode.toString();
 	if (roundArrayString == secretCodeString) {
-		console.log("You have won!");
+        console.log("You have won! It took you ==>", hours, minutes, secondes, "# of trial", tryBtn-1);
+        
 	} else {
 		arr.push(roundArray);
 		roundArray = [];
@@ -190,58 +194,6 @@ function hint() {
 	}
 }
 
-// Chrono
-
-// class Chronometer {
-// 	constructor() {
-// 		this.currentTime = 0;
-// 		this.intervalId = 0;
-// 	}
-
-// 	startClick(printTime) {
-// 		this.intervalId = setInterval(() => {
-//             this.currentTime++;;
-//             printTime();
-// 		}, 1000);
-// 	}
-
-// 	getMinutes() {
-// 		return this.currentTime !== 0 ? Math.floor(this.currentTime / 60) : 0;
-// 	}
-
-// 	getSeconds() {
-// 		return this.currentTime !== 0 ? Math.floor(this.currentTime % 60) : 0;
-// 	}
-
-// 	twoDigitsNumber(twoDigits) {
-// 		return twoDigits >= 10 ? twoDigits.toString() : "0" + twoDigits.toString();
-// 	}
-
-// 	resetClick() {
-// 		this.currentTime = 0;
-// 	}
-// }
-
-// function printTime() {
-//     console.log("Hello");
-// 	printMinutes();
-// 	printSeconds();
-// }
-
-// const chronometer = new Chronometer();
-
-// function printMinutes() {
-// 	const minutes = chronometer.twoDigitsNumber(chronometer.getMinutes());
-// 	minDec.innerText = minutes.charAt(0);
-// 	minUni.innerText = `${minutes.charAt(1)}:`;
-// }
-
-// function printSeconds() {
-// 	const seconds = chronometer.twoDigitsNumber(chronometer.getSeconds());
-// 	secDec.innerText = seconds.charAt(0);
-// 	secUni.innerText = seconds.charAt(1);
-// }
-
 let size = 35;
 let columns = Array.from(document.getElementsByClassName("column"));
 let d, c;
@@ -268,29 +220,33 @@ function getClass(n, i2) {
 	);
 }
 
+let hours = 0;
+let minutes = 0;
+let secondes = 0;
+let timeFull = ""
 var timeCounting = 0;
-function timeCountingFunction () {
-setInterval(() => {
-    timeCounting++
-    console.log(timeCounting);
+let intervalId = 0;
+function timeCountingFunction() {
+	intervalId = setInterval(() => {
+        timeCounting++;
+        timeCounting !== 0 ? hours = Math.floor(timeCounting / 3600) : minutes = 0;
+        timeCounting !== 0 ? minutes = Math.floor((timeCounting % 3600)/60) : minutes = 0;
+        timeCounting !== 0 ? secondes = Math.floor(timeCounting % 60) : secondes = 0;
+        hours >= 10 ? hours = hours.toString() : hours = "0" + hours.toString();
+        minutes >= 10 ? minutes = minutes.toString() : minutes = "0" + minutes.toString();
+        secondes >= 10 ? secondes = secondes.toString() : secondes = "0" + secondes.toString()
+        timeFull = hours + minutes + secondes;
+        // console.log(timeFull);
+        return timeFull;
+	}, 1000);
+}
 
-    function getMinutes() {
-        let minutes = 0;
-        return minutes !== 0 ? Math.floor((timeCounting)/60) : 0;}
-
-    function getSeconds() {
-            return this.currentTime !== 0 ? Math.floor((this.currentTime/100)%60) : 0;}
-        
-}, 1000);}
-
-
-
-
+let intervalIdTwo = 0;
 function letsGo() {
-	setInterval(() => {
-		c = getClock() - getClock() + timeCounting;
+	intervalIdTwo = setInterval(() => {
+        c = getClock() - getClock() + timeCounting.toString();
+        while (c.length < 6) {c = "0" +c};
 		console.log(c);
-		timeCounting++;
 		// put intervalid and clear it when reset or lose/win
 		columns.forEach((ele, i) => {
 			let n = +c[i];
@@ -305,4 +261,14 @@ function letsGo() {
 	}, 1000 + Math.E * 10);
 }
 
+function resetTime () {
+    timeCounting=0;
+    c = getClock() - getClock();
+}
+
 start.addEventListener("click", letsGo);
+start.addEventListener("click", timeCountingFunction);
+resetBtn.addEventListener("click", resetTime);
+
+
+
