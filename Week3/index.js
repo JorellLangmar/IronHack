@@ -98,13 +98,19 @@ function addColor(evt) {
 				console.log("ça fonctionne");
 				continue;
 			} else {
+				let word = evt.target.classList.value;
+				console.log(word);
+				let index = word.indexOf(" ");
+				console.log(index);
+				var wordModified = word.substring(0, index);
+				console.log(wordModified);
 				lines[lines.length - tryBtn].children[i].classList.add(
-					evt.target.classList.value,
+					wordModified,
 					"full"
 				);
 				console.log(lines[lines.length - tryBtn]);
 			}
-			roundArray.push(evt.target.classList.value);
+			roundArray.push(wordModified);
 			console.log(roundArray);
 			break;
 		}
@@ -186,56 +192,117 @@ function hint() {
 
 // Chrono
 
-class Chronometer {
-	constructor() {
-		this.currentTime = 0;
-		this.intervalId = 0;
-	}
+// class Chronometer {
+// 	constructor() {
+// 		this.currentTime = 0;
+// 		this.intervalId = 0;
+// 	}
 
-	startClick(printTime) {
-		this.intervalId = setInterval(() => {
-            this.currentTime++;;
-            printTime();
-		}, 1000);
-	}
+// 	startClick(printTime) {
+// 		this.intervalId = setInterval(() => {
+//             this.currentTime++;;
+//             printTime();
+// 		}, 1000);
+// 	}
 
-	getMinutes() {
-		return this.currentTime !== 0 ? Math.floor(this.currentTime / 60) : 0;
-	}
+// 	getMinutes() {
+// 		return this.currentTime !== 0 ? Math.floor(this.currentTime / 60) : 0;
+// 	}
 
-	getSeconds() {
-		return this.currentTime !== 0 ? Math.floor(this.currentTime % 60) : 0;
-	}
+// 	getSeconds() {
+// 		return this.currentTime !== 0 ? Math.floor(this.currentTime % 60) : 0;
+// 	}
 
-	twoDigitsNumber(twoDigits) {
-		return twoDigits >= 10 ? twoDigits.toString() : "0" + twoDigits.toString();
-	}
+// 	twoDigitsNumber(twoDigits) {
+// 		return twoDigits >= 10 ? twoDigits.toString() : "0" + twoDigits.toString();
+// 	}
 
-	resetClick() {
-		this.currentTime = 0;
-	}
+// 	resetClick() {
+// 		this.currentTime = 0;
+// 	}
+// }
+
+// function printTime() {
+//     console.log("Hello");
+// 	printMinutes();
+// 	printSeconds();
+// }
+
+// const chronometer = new Chronometer();
+
+// function printMinutes() {
+// 	const minutes = chronometer.twoDigitsNumber(chronometer.getMinutes());
+// 	minDec.innerText = minutes.charAt(0);
+// 	minUni.innerText = `${minutes.charAt(1)}:`;
+// }
+
+// function printSeconds() {
+// 	const seconds = chronometer.twoDigitsNumber(chronometer.getSeconds());
+// 	secDec.innerText = seconds.charAt(0);
+// 	secUni.innerText = seconds.charAt(1);
+// }
+
+let size = 35;
+let columns = Array.from(document.getElementsByClassName("column"));
+let d, c;
+let classList = ["visible", "close", "far", "far", "distant", "distant"];
+let use24HourClock = true;
+
+function padClock(p, n) {
+	return p + ("0" + n).slice(-2);
 }
 
-function printTime() {
-    console.log("Hello");
-	printMinutes();
-	printSeconds();
+function getClock() {
+	d = new Date();
+	return [
+		use24HourClock ? d.getHours() : d.getHours() % 12 || 12,
+		d.getMinutes(),
+		d.getSeconds(),
+	].reduce(padClock, "");
 }
 
-const chronometer = new Chronometer();
-
-function printMinutes() {
-	const minutes = chronometer.twoDigitsNumber(chronometer.getMinutes());
-	minDec.innerText = minutes.charAt(0);
-	minUni.innerText = `${minutes.charAt(1)}:`;
+function getClass(n, i2) {
+	return (
+		classList.find((class_, classIndex) => Math.abs(n - i2) === classIndex) ||
+		""
+	);
 }
 
-function printSeconds() {
-	const seconds = chronometer.twoDigitsNumber(chronometer.getSeconds());
-	secDec.innerText = seconds.charAt(0);
-	secUni.innerText = seconds.charAt(1);
+var timeCounting = 0;
+function timeCountingFunction () {
+setInterval(() => {
+    timeCounting++
+    console.log(timeCounting);
+
+    function getMinutes() {
+        let minutes = 0;
+        return minutes !== 0 ? Math.floor((timeCounting)/60) : 0;}
+
+    function getSeconds() {
+            return this.currentTime !== 0 ? Math.floor((this.currentTime/100)%60) : 0;}
+        
+}, 1000);}
+
+
+
+
+function letsGo() {
+	setInterval(() => {
+		c = getClock() - getClock() + timeCounting;
+		console.log(c);
+		timeCounting++;
+		// put intervalid and clear it when reset or lose/win
+		columns.forEach((ele, i) => {
+			let n = +c[i];
+			let offset = -n * size;
+			ele.style.transform = `translateY(calc(50vh + ${offset}px - ${
+				size / 2
+			}px))`;
+			Array.from(ele.children).forEach((ele2, i2) => {
+				ele2.className = "num " + getClass(n, i2);
+			});
+		});
+	}, 1000 + Math.E * 10);
 }
 
-
-start.addEventListener("click", chronometer.startClick(printTime));
-resetBtn.addEventListener("click", chronometer.resetClick);
+start.addEventListener("click", letsGo);

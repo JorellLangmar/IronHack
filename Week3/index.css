@@ -125,8 +125,8 @@ a span::before {
 	justify-content: space-evenly;
 	align-items: center;
 	align-content: center;
-	background: url(./sources/Background\ 2\ test.jpg) center center / cover
-		no-repeat;
+	background: url(./sources/Bleu-foncé.jpg)
+		center center / cover no-repeat;
 	width: 100vw;
 	height: 100vh;
 	color: white;
@@ -134,11 +134,11 @@ a span::before {
 }
 
 #game-part {
-    padding: 5vh 0vh;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+	padding: 5vh 0vh;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 #game table {
@@ -155,7 +155,7 @@ a span::before {
 	font: italic;
 }
 
-#game-part td  {
+#game-part td {
 	padding: 8px;
 }
 
@@ -247,6 +247,11 @@ a span::before {
 	height: 40px;
 }
 
+#given-colors {
+	border: 2px dashed white;
+	border-radius: 25%;
+}
+
 #game #message {
 	display: flex;
 	flex-direction: column;
@@ -260,50 +265,47 @@ a span::before {
 	padding: 14px 28px;
 	font-size: 16px;
 	cursor: pointer;
-    display: inline-block;
-    font-family: "Long Cang", cursive;
-    color: white;
-    font-size: 50px;
+	display: inline-block;
+	font-family: "Long Cang", cursive;
+	color: white;
+	font-size: 50px;
 }
 
 #game > div {
-    width: 33%;
+	width: 33%;
 }
 
 .loaded {
-    font-family: "Long Cang", cursive;
-    color: white;
-    font-size: 30px;
-    text-align: center;
-    height: 50px;
+	font-family: "Long Cang", cursive;
+	color: white;
+	font-size: 30px;
+	text-align: center;
+	height: 50px;
 }
 
-
-
 .hint img {
-    display: block;
-    width: 0.5vw;
-    margin: 3px;
+	display: block;
+	width: 0.5vw;
+	margin: 3px;
 }
 
 .hint {
-    display: flex;
-    flex-direction: row;
-    width: 4vw;
-    flex-wrap: wrap;
-    height: inherit;
+	display: flex;
+	flex-direction: row;
+	width: 4vw;
+	flex-wrap: wrap;
+	height: inherit;
 }
 
 .black {
-    border-radius: 50%;
-    border: 1px solid black;
-    background: black;
+	border-radius: 50%;
+	border: 1px solid black;
+	background: black;
 }
-
 
 .heartbeat {
 	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
-	        animation: heartbeat 1.5s ease-in-out infinite both;
+	animation: heartbeat 1.5s ease-in-out infinite both;
 }
 
 /* ----------------------------------------------
@@ -318,78 +320,78 @@ a span::before {
  * animation heartbeat
  * ----------------------------------------
  */
- @-webkit-keyframes heartbeat {
-    from {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      -webkit-transform-origin: center center;
-              transform-origin: center center;
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
-    10% {
-      -webkit-transform: scale(0.91);
-              transform: scale(0.91);
-      -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
-    }
-    17% {
-      -webkit-transform: scale(0.98);
-              transform: scale(0.98);
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
-    33% {
-      -webkit-transform: scale(0.87);
-              transform: scale(0.87);
-      -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
-    }
-    45% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
-  }
-  @keyframes heartbeat {
-    from {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      -webkit-transform-origin: center center;
-              transform-origin: center center;
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
-    10% {
-      -webkit-transform: scale(0.91);
-              transform: scale(0.91);
-      -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
-    }
-    17% {
-      -webkit-transform: scale(0.98);
-              transform: scale(0.98);
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
-    33% {
-      -webkit-transform: scale(0.87);
-              transform: scale(0.87);
-      -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
-    }
-    45% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
-  }
+@-webkit-keyframes heartbeat {
+	from {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-transform-origin: center center;
+		transform-origin: center center;
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+	10% {
+		-webkit-transform: scale(0.91);
+		transform: scale(0.91);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+	17% {
+		-webkit-transform: scale(0.98);
+		transform: scale(0.98);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+	33% {
+		-webkit-transform: scale(0.87);
+		transform: scale(0.87);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+	45% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+}
+@keyframes heartbeat {
+	from {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-transform-origin: center center;
+		transform-origin: center center;
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+	10% {
+		-webkit-transform: scale(0.91);
+		transform: scale(0.91);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+	17% {
+		-webkit-transform: scale(0.98);
+		transform: scale(0.98);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+	33% {
+		-webkit-transform: scale(0.87);
+		transform: scale(0.87);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+	45% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+}
 
-  .text-focus-in {
-	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+.text-focus-in {
+	-webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+	animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
 /* ----------------------------------------------
@@ -404,34 +406,34 @@ a span::before {
  * animation text-focus-in
  * ----------------------------------------
  */
- @-webkit-keyframes text-focus-in {
-    0% {
-      -webkit-filter: blur(12px);
-              filter: blur(12px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-filter: blur(0px);
-              filter: blur(0px);
-      opacity: 1;
-    }
-  }
-  @keyframes text-focus-in {
-    0% {
-      -webkit-filter: blur(12px);
-              filter: blur(12px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-filter: blur(0px);
-              filter: blur(0px);
-      opacity: 1;
-    }
-  }
+@-webkit-keyframes text-focus-in {
+	0% {
+		-webkit-filter: blur(12px);
+		filter: blur(12px);
+		opacity: 0;
+	}
+	100% {
+		-webkit-filter: blur(0px);
+		filter: blur(0px);
+		opacity: 1;
+	}
+}
+@keyframes text-focus-in {
+	0% {
+		-webkit-filter: blur(12px);
+		filter: blur(12px);
+		opacity: 0;
+	}
+	100% {
+		-webkit-filter: blur(0px);
+		filter: blur(0px);
+		opacity: 1;
+	}
+}
 
-  .slide-top:hover {
-	-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+.slide-top:hover {
+	-webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 /* ----------------------------------------------
@@ -446,35 +448,76 @@ a span::before {
  * animation slide-top
  * ----------------------------------------
  */
- @-webkit-keyframes slide-top {
-    0% {
-      -webkit-transform: translateY(0);
-              transform: translateY(0);
-    }
-    100% {
-      -webkit-transform: translateY(-20px);
-              transform: translateY(-20px);
-    }
-  }
-  @keyframes slide-top {
-    0% {
-      -webkit-transform: translateY(0);
-              transform: translateY(0);
-    }
-    100% {
-      -webkit-transform: translateY(-20px);
-              transform: translateY(-20px);
-    }
-  }
-  
-  #chronotime {
+@-webkit-keyframes slide-top {
+	0% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+	100% {
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+}
+@keyframes slide-top {
+	0% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+	100% {
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+}
+
+/* #chronotime div {
       display: flex;
       font-size: 80px;
       font-family: "Long Cang", cursive;
-  }
+  } */
 
-  #chrono {
-      display: flex;
-      justify-content: center;
-      align-content: center;
-  }
+#chrono {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	color: white;
+    z-index: 3;
+    height: 100vh;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300");
+
+.column,
+.colon {
+	display: inline-block;
+	vertical-align: top;
+	font-size: 40px;
+	line-height: 35px;
+	font-family: "Long Cang", cursive;
+}
+.column {
+	transition: transform 300ms;
+}
+.colon {
+	transition: transform 300ms;
+	transform: translateY(calc(50vh - 25px));
+}
+.colon:after {
+	content: ":";
+}
+.num {
+	transition: opacity 500ms, text-shadow 100ms;
+	opacity: 0.025;
+}
+.num.visible {
+	opacity: 1;
+	text-shadow: 1px 1px 0px #369;
+}
+.num.close {
+	opacity: 0.35;
+}
+.num.far {
+	opacity: 0.15;
+}
+.num.distant {
+	opacity: 0.1;
+}
