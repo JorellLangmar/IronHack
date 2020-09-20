@@ -1,0 +1,16 @@
+#nav-main {
+  background: var(--color-dark);
+  color: var(--color-light);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#nav-main .link:not(:last-of-type) {
+  margin-right: 10px;
+}
+
+#nav-main .link:hover {
+  color: var(--color-hover);
+}

@@ -1,0 +1,157 @@
+body  {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 100px;
+}
+
+.slide-bottom .m {
+	-webkit-animation: 0.5s slide-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 0.5s slide-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-bottom .o {
+	-webkit-animation: 0.5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 0.5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-bottom .r {
+	-webkit-animation: 1s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 1s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-bottom .n {
+	-webkit-animation: 1.5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 1.5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-bottom .i {
+	-webkit-animation: 2s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 2s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-bottom .n2 {
+	-webkit-animation: 2.5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 2.5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-bottom .g {
+	-webkit-animation: 3s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 3s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-bottom .s {
+	-webkit-animation: 3.5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 3.5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-bottom .u {
+	-webkit-animation: 4s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 4s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-bottom .n3 {
+	-webkit-animation: 4.5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 4.5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-bottom .s2 {
+	-webkit-animation: 5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-bottom .h {
+	-webkit-animation: 5.5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 5.5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-bottom .i2 {
+	-webkit-animation: 6s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 6s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-bottom .n4 {
+	-webkit-animation: 6.5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 6.5s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-bottom .e {
+	-webkit-animation: 7s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: 7s slide-bottom 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+
+/*
+ * ----------------------------------------
+ * animation slide-bottom
+ * ----------------------------------------
+ */
+ @-webkit-keyframes slide-bottom {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+        -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+
+    }
+    100% {
+      -webkit-transform: translateY(100px);
+              transform: translateY(100px);
+              -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+
+    }
+  }
+  @keyframes slide-bottom {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+              color: white;
+              -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(200px);
+              transform: translateY(200px);
+              color: lightblue;
+              -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
+  /*
+ * ----------------------------------------
+ * animation text-focus-in
+ * ----------------------------------------
+ */
+
+@-webkit-keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  

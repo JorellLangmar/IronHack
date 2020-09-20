@@ -1,0 +1,10 @@
+<h1 class="title">My albums</h1>
+<hr>
+<ul class="list grid albums">
+    {{#each albums}}
+    <li class="item">
+        <h2 class="title">Albums {{@index}}</h2>
+        {{this.title}} - {{this.artiste}} - {{this.year}}
+    </li>
+    {{/each}}
+</ul>

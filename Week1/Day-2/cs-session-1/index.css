@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+
+.iteration1 .box {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    padding: 50px;
+}
+
+.iteration1 .target {
+    border: 2px dashed black;
+    height: 100px;
+    background: red;
+}
+
+.shapedtable {
+    width: 300px;
+    height: 150px;
+}
+
+.shapedtable td {
+    border: 2px solid black;
+}
+
+.shapedtable .secondrow :nth-child(odd) {
+    background: lightgray;
+}
+
+.iteration3 .box {
+    width: 300px;
+    border: 1px solid black;
+    padding-left: 4px;
+    padding-right: 4Px;
+    font-weight: bold;
+}
+
+.iteration3 div {
+    margin: 2px;
+}
+
+.iteration3 p {
+    background: rgb(145, 10, 145);
+    color: white;
+}
+
+.iteration3 .a {
+    margin: 4px 0px 4px 0px;
+    padding: 4px;
+    width: 25%;
+}
+
+.iteration3 .b {
+    margin: 0px;
+    padding: 4px;
+    width: 75%;
+}
+
+.iteration3 .c {
+    text-align: right;
+    margin: 4px 0px 4px 0px;
+    margin-bottom: 0;
+    margin-left: 25%;
+    padding: 4px;
+    width: 75%;
+}
+
+.iteration3 .d {
+    padding: 4px;
+    margin: 0px 0px 0px 0px;
+    width: 25%;
+}
+
+.iteration4 div {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.iteration4 .redlign, .iteration4 .blacklign {
+    width: 300px;
+    font-size: 0px;
+}
+
+.iteration4 .redlign div {
+    display: inline-block;
+    width: 25%;
+    background: red;
+}
+
+.iteration4 .blacklign div {
+    display: inline-block;
+    width: 25%;
+    background: black;
+}
+
+.iteration5 .orangelign, .iteration5 .greenlign {
+    display: flex;
+    width: 300px;
+}
+
+.iteration5 div {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.iteration5 .orangelign div {
+    background: orange;
+    width: 25%;
+}
+
+.iteration5 .greenlign div {
+    background: green;
+    width: 25%;
+}

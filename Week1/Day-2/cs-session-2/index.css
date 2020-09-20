@@ -1,0 +1,241 @@
+* {
+    box-sizing: border-box;
+}
+
+.iteration1 .bigsquare {
+    border: 2px solid black;
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.iteration1 .square {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: black;
+}
+
+.iteration1 .top {
+    top: 0;
+}
+
+.iteration1 .bottom {
+    bottom: 0;
+}
+
+.iteration1 .right {
+    right: 0;
+}
+
+.iteration1 .left {
+    left: 0;
+}
+
+.iteration1 .middle {
+    top: 45%;
+    left: 45%;
+}
+
+
+.iteration2 .blackbox {
+    width: auto;
+    height: auto;
+    border: 2px solid black;
+    width: max-content;
+    margin-bottom: 50px;
+}
+
+.iteration2 .blackbox .main1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.iteration2 .blackbox .main1 .greencircle {
+    width: 100px;
+    height: 100px;
+    background: lightgreen;
+    border-radius: 50%;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+}
+
+
+.iteration2 .main1 .A1 {
+    float: left;
+    padding-top: 17.5%;
+}
+
+.iteration2 .main1 .A3 {
+    float: left;
+    padding-top: 17.5%;
+}
+
+.iteration2 .main1 .A2 {
+    float: right;
+    padding-top: 17.5%;
+}
+
+.iteration2 .main1 .A4 {
+    float: right;
+    padding-top: 17.5%;
+}
+
+.iteration2 .blackbox .main2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.iteration2 .blackbox .main2 .greencircle {
+    width: 100px;
+    height: 100px;
+    background: lightgreen;
+    border-radius: 50%;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+}
+
+.iteration2 .main2 {
+    display: block;
+}
+.iteration2 .main2 .A1 {
+    float: left;
+    padding-top: 17.5%;
+}
+
+.iteration2 .main2 .A3 {
+    float: left;
+    padding-top: 17.5%;
+}
+
+.iteration2 .main2 .A2 {
+    float: right;
+    padding-top: 17.5%;
+    clear: left;
+}
+
+.iteration2 .main2 .A4 {
+    float: right;
+    padding-top: 17.5%;
+}
+
+.iteration3 .box {
+    border: 2px solid black;
+    width: min-content;
+}
+
+.iteration3 .box {
+    display: flex;
+    flex-direction: column;
+}
+
+.iteration3 .bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+.iteration3 .topdiv {
+    display: flex;
+    margin: 5px 5px 0px 5px;
+}
+
+.iteration3 .boxtop {
+    width: 100px;
+    height: 30px;
+    background: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iteration3 .A2 {
+    border-right: 5px solid gray;
+    border-left: 5px solid gray;
+}
+
+.iteration3 .A3 {
+    border-right: 5px solid gray;
+}
+
+.iteration3 .boxbotleft {
+    width: 130px;
+    height: 30px;
+    background: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iteration3 .bottomleft {
+    display: flex;
+    margin: 5px;
+}
+
+.iteration3 .bottomlefttop {
+    display: flex;
+    flex-direction: column;
+}
+
+.iteration3 .B1 {
+    border-right: 2.5px solid darkgrey;
+    border-bottom: 2.5px solid darkgrey;
+}
+
+.iteration3 .B3 {
+    border-right: 2.5px solid darkgrey;
+    border-top: 2.5px solid darkgrey;
+}
+
+.iteration3 .B2 {
+    border-left: 2.5px solid darkgrey;
+    border-bottom: 2.5px solid darkgrey;
+}
+
+.iteration3 .B4 {
+    border-left: 2.5px solid darkgrey;
+    border-top: 2.5px solid darkgrey;
+}
+
+.iteration3 .boxbotright {
+    width: 67.5px;
+    height: 30px;
+    background: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iteration3 .bottomright {
+    display: flex;
+    margin: 5px;
+    margin-left: 0px;
+}
+
+.iteration3 .bottomrighttop {
+    display: flex;
+    flex-direction: column;
+}
+
+.iteration3 .C1 {
+    border-right: 2.5px solid darkgrey;
+    border-bottom: 2.5px solid darkgrey;
+}
+
+.iteration3 .C3 {
+    border-right: 2.5px solid darkgrey;
+    border-top: 2.5px solid darkgrey;
+}
+
+.iteration3 .C2 {
+    border-left: 2.5px solid darkgrey;
+    border-bottom: 2.5px solid darkgrey;
+}
+
+.iteration3 .C4 {
+    border-left: 2.5px solid darkgrey;
+    border-top: 2.5px solid darkgrey;
+}
